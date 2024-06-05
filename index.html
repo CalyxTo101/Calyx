@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL PROJECT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('basic-info')">Basic Information</a></li>
+            <li><a href="#" onclick="showPage('skills')">Skills</a></li>
+            <li><a href="#" onclick="showPage('knowledge')">Knowledge</a></li>
+            <li><a href="#" onclick="showPage('strengths')">Strengths</a></li>
+            <li><a href="#" onclick="showPage('background')">Background</a></li>
+        </ul>
+    </nav>
+    <div id="page-container">
+    </div>
+
+    <script>
+        const portfolio = {
+            basicInformation: {
+                name: "Lilyannah Gabrielle Picones Lacostales",
+                age: 21,
+                email: "bsis.lacostaleslilyannahp@gmail.com",
+                phone: "+63 935 393 5014",
+                address: "Pantok, Binangonan, Rizal",
+                facebook: "facebook.com/y.picones",
+                github: "github.com/CalyxTo101"
+            },
+            skills: ["JavaScript", "HTML", "CSS", "MySQL", "c++", "Java", "Problem Solving"],
+            knowledge: ["Web Development", "Frontend Development", "Backend Development", "Database Management", "Responsive Design"],
+            strengths: ["Strong problem-solving skills", "Quick learner", "Effective communicator", "Team player", "Attention to detail", "Ability to work under pressure"],
+            background: "Nothing to show"
+        };
+
+        function showPage(pageName) {
+            const pageContainer = document.getElementById('page-container');
+            let content = '';
+
+            switch(pageName) {
+                case 'basic-info':
+                    content += `<div class="container"><h2>Basic Information</h2>`;
+                    content += `<p>Name: ${portfolio.basicInformation.name}</p>`;
+                    content += `<p>Age: ${portfolio.basicInformation.age}</p>`;
+                    content += `<p>Email: ${portfolio.basicInformation.email}</p>`;
+                    content += `<p>Phone: ${portfolio.basicInformation.phone}</p>`;
+                    content += `<p>Address: ${portfolio.basicInformation.address}</p>`;
+                    content += `<p>Facebook: <a href="https://${portfolio.basicInformation.facebook}" target="_blank">${portfolio.basicInformation.facebook}</a></p>`;
+                    content += `<p>GitHub: <a href="https://${portfolio.basicInformation.github}" target="_blank">${portfolio.basicInformation.github}</a></p>`;
+                    content += `</div>`;
+                    break;
+                case 'skills':
+                    content += `<div class="container"><h2>Skills</h2>`;
+                    content += `<ul>`;
+                    portfolio.skills.forEach(skill => {
+                        content += `<li>${skill}</li>`;
+                    });
+                    content += `</ul></div>`;
+                    break;
+                case 'knowledge':
+                    content += `<div class="container"><h2>Knowledge</h2>`;
+                    content += `<ul>`;
+                    portfolio.knowledge.forEach(knowledge => {
+                        content += `<li>${knowledge}</li>`;
+                    });
+                    content += `</ul></div>`;
+                    break;
+                case 'strengths':
+                    content += `<div class="container"><h2>Strengths</h2>`;
+                    content += `<ul>`;
+                    portfolio.strengths.forEach(strength => {
+                        content += `<li>${strength}</li>`;
+                    });
+                    content += `</ul></div>`;
+                    break;
+                case 'background':
+                    content += `<div class="container"><h2>Background</h2>`;
+                    content += `<p>${portfolio.background}</p></div>`;
+                    break;
+                default:
+                    content += `<div class="container"><p>Page not found</p></div>`;
+            }
+
+            pageContainer.innerHTML = content;
+        }
+
+        showPage('basic-info');
+    </script>
+</body>
+</html>
