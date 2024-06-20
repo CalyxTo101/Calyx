@@ -1,0 +1,97 @@
+*{
+	font-family: copperplate;
+	background-color: lightpink;
+  }
+  
+  .container{
+    width: 100%;
+    text-align: center;
+  }
+  
+  h1{
+    font-size: 60px;
+    position: relative;
+  }
+  
+  h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: blue;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+  }
+
+  @keyframes animate{
+    0%{
+      width: 100px;
+    }
+    50%{
+      width: 200px;
+    }
+    100%{
+      width: 100px;
+    }
+  }
+  
+  .top-content{
+    background-color: rgb(143, 143, 143);
+    width: 50%;
+    margin: 20px;
+    height: 50px;
+    display: inline-block;
+    align-items: center;
+    border-radius: 100px;
+    box-shadow: 3px 3px 3px black;
+  }
+  
+  h2{
+    height: 0;
+    line-height: 10px;
+    color: black;
+  }
+  
+  label{
+    line-height: 200px;
+    font-size: 24px;
+    color: black;
+  }
+  
+  label:hover{
+    color: blue;
+  }
+  
+  .photo-gallery{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .pic{
+    position: relative;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  .pic img{
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+  }
+  
+  .pic:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+	left: 0;
+    background-color: rgba(0,0,0,.4);
+    transition: .5s;
+  }
+  
+  .pic:hover::after{
+    height: 100%;
+  }

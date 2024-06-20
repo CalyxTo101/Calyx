@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lols.css">
+    <title>KALOKOHAN</title>
+</head>
+<body>
+    <header>
+        <a href="../projects.html">Go back to projects</a>
+    </header>
+    <div class="container">
+    <img id="tae" src="hooman.jpg">
+    </div>
+    <div class="row">
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button class="btn" onclick="compute()">Compute</button>
+    <h2 id="sum">...</h2>
+    </div>
+</body>
+    <script>
+           function compute() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let sum = num1 + num2;
+            let difference = num1 - num2;
+            let product = num1 * num2;
+            let quotient = num1 / num2;
+            document.getElementById('sum').innerHTML = "Sum: " + sum + " Difference: " + difference + " Product: " + product + " Quotient: " + quotient;
+            if (sum > 50) {
+            document.getElementById('sum').style.color='blue';
+           }
+           else {
+            document.getElementById('sum').style.color='red';
+           }
+           if (difference < 50) {
+            document.getElementById('tae').src="cat.jpg";
+           }
+           else {
+            document.getElementById('tae').src="dog.jpg";
+           }
+           if (product > 500) {
+            document.body.style.backgroundColor='green';
+           }
+           else {
+            document.body.style.backgroundColor='orange';
+           }
+        }
+
+         
+    </script>
+
+</html>
